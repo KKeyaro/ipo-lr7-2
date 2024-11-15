@@ -1,6 +1,8 @@
 import json
 kvalif = str(input("Введите номер квалификации: "))
 found = False
+kvalif2 = kvalif[:-3]
+
 with open("dump.json", encoding= "utf-8") as file:
     soderjim = file.read()
     text = json.loads(soderjim)
@@ -11,7 +13,7 @@ with open("dump.json", encoding= "utf-8") as file:
             found = True
             for spec in text:
                 if spec["model"] == "data.specialty":
-                    if spec["fields"]["code"] == kvalif:
+                    if spec["fields"]["code"] == kvalif2:
                         spec_code = spec["fields"]["code"]
                         spec_title = spec["fields"]["title"]
                         spec_type = spec["fields"]["c_type"]
